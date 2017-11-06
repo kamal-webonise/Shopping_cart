@@ -65,8 +65,9 @@ class ShopingCart
 }colg,pepso;
 
 
-void addItem(int id,int quant)
+void addItem(int id)
 {
+	int quant;
 	if(id==1)
 	{
 		cout<<"\nenter quantity for colgate\n";
@@ -81,8 +82,9 @@ void addItem(int id,int quant)
 	}
 }
 
-void removeItem(int id,int quant)
+void removeItem(int id)
 {
+	int quant;
 	if(id==1)
 	{
 		cout<<"\nyou have "<<colg.quan<<" colgate.how many to remove?";
@@ -142,16 +144,16 @@ int main()
 		switch(n)
 		{	
 			case 1 : 	
-				addItem(colg.code,quant);
+				addItem(colg.code);
 				break;
 			case 2 :
-				addItem(pepso.code,quant);
+				addItem(pepso.code);
 				break;
 			case 3: 
-				removeItem(colg.code,quant);
+				removeItem(colg.code);
 				break;
 			case 4: 
-				removeItem(colg.code,quant);
+				removeItem(colg.code);
 				break;
 			case 5:
 				colg_bill = colg.checkout();
