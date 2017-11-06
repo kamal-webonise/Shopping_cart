@@ -65,6 +65,49 @@ class ShopingCart
 }colg,pepso;
 
 
+void addItem(int id,int quant)
+{
+	if(id==1)
+	{
+		cout<<"\nenter quantity for colgate\n";
+		cin>>quant;
+		colg.quan+=quant;
+	}
+	else
+	{
+		cout<<"\nenter quantity for pesodent;\n";
+		cin>>quant;
+		pepso.quan+=quant;
+	}
+}
+
+void removeItem(int id,int quant)
+{
+	if(id==1)
+	{
+		cout<<"\nyou have "<<colg.quan<<" colgate.how many to remove?";
+		cin>>quant;
+		colg.quan-=quant;
+	}
+	else
+	{
+		cout<<"\nyou have "<<pepso.quan<<" pepsodent.how many to remove?";
+		cin>>quant;
+		pepso.quan-=quant;
+	}
+}
+
+void final_bill(int colg_bill,int pepso_bill)
+{
+	
+	cout<<"\n\nNo of Colgate "<<colg.quan<<" for rupees "<<colg_bill<<"\n\n";
+
+	cout<<"\nNo of pepsodent "<<pepso.quan<<" for rupees "<<pepso_bill<<"\n";
+	
+	cout<<"\n\nTOTAL BILL "<<colg_bill+pepso_bill<<"\n";
+}
+
+
 int main()
 {
 	char ch,key;
@@ -99,34 +142,22 @@ int main()
 		switch(n)
 		{	
 			case 1 : 	
-				cout<<"\nenter quantity for colgate\n";
-				cin>>quant;
-				colg.quan+=quant;
+				addItem(colg.code,quant);
 				break;
 			case 2 :
-				cout<<"\nenter quantity for pesodent;\n";
-				cin>>quant;
-				pepso.quan+=quant;
+				addItem(pepso.code,quant);
 				break;
 			case 3: 
-				cout<<"\nyou have "<<colg.quan<<" colgate.how many to remove?";
-				cin>>quant;
-				colg.quan-=quant;
+				removeItem(colg.code,quant);
 				break;
 			case 4: 
-				cout<<"\nyou have "<<pepso.quan<<" pepsodent.how many to remove?";
-				cin>>quant;
-				pepso.quan-=quant;
+				removeItem(colg.code,quant);
 				break;
 			case 5:
 				colg_bill = colg.checkout();
 				pepso_bill = pepso.checkout();
 
-				cout<<"\n\nNo of Colgate "<<colg.quan<<" for rupees "<<colg_bill<<"\n\n";
-
-				cout<<"\nNo of pepsodent "<<pepso.quan<<" for rupees "<<pepso_bill<<"\n";
-	
-				cout<<"\n\nTOTAL BILL "<<colg_bill+pepso_bill<<"\n";
+				final_bill(colg_bill,pepso_bill);
 				return 1;
 							 
 		}
