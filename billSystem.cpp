@@ -13,7 +13,9 @@ class shopingCart
 	
 	void thirdCase();
 
-	void fourthCase();
+	int  fourthCase();
+	
+	void fiftheCase();
 
 };
 
@@ -50,7 +52,7 @@ void shopingCart :: thirdCase()
 	
 }
 
-void shopingCart :: fourthCase()
+int shopingCart :: fourthCase()
 {
         int col_qty,temp,bill=0;
 	cout << "\n OFFER : Buy 2 Get 1 Free \n";
@@ -62,8 +64,21 @@ void shopingCart :: fourthCase()
 	bill-=Calc_bill(temp,10);
 
 	cout<<"\nTotal Amount "<<bill<<"\n";
+	return bill;
 }
 
+
+void shopingCart :: fifthCase()
+{
+        int pepso_qty,bill=0;
+	
+	cout<<"\n quantity for pepsodent \n";
+	cin>>pepso_qty;
+	bill+= fourthCase();
+	bill+=Calc_bill(pepso_qty,15); 
+	
+	cout<<"\nTotal Amount "<<bill<<"\n";
+}
 
 int main()
 {
@@ -73,5 +88,5 @@ int main()
 	obj.secondCase(10,10);	
 	obj.thirdCase();
 	obj.fourthCase();
-	
+	obj.fifthCase();
 }
